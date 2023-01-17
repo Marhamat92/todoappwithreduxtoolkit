@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "./store";
-import { add, remove, toggleCompleted } from "./features/todoSlice";
+import { add, remove } from "./features/todoSlice";
 
 function App() {
   const todos = useAppSelector((state) => state.todos); // state.todos is the name of the slice,we are using this to get data from the store
@@ -20,12 +20,6 @@ function App() {
     dispatch(remove(id));
   };
 
-  const handleMarkCompleted = (id: string) => {
-    dispatch(toggleCompleted(id));
-  };
-
-  console.log(todos);
-
   return (
     <div>
       <input type='text' value={title} onChange={handleTitleChange} />
@@ -33,10 +27,7 @@ function App() {
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
-            <button onClick={() => handleMarkCompleted(todo.id)}>
-              {todo.completed ? "Not Completed" : "Mark Completed"}
-            </button>
-            <button onClick={() => handleDelete(todo.id)}>Delete Todo</button>
+            <span onClick={() => handleDelete(todo.id)}>X</span>
             <span>{todo.title}</span>
           </li>
         ))}

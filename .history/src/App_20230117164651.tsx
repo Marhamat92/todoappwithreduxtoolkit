@@ -24,8 +24,6 @@ function App() {
     dispatch(toggleCompleted(id));
   };
 
-  console.log(todos);
-
   return (
     <div>
       <input type='text' value={title} onChange={handleTitleChange} />
@@ -34,7 +32,7 @@ function App() {
         {todos.map((todo) => (
           <li key={todo.id}>
             <button onClick={() => handleMarkCompleted(todo.id)}>
-              {todo.completed ? "Not Completed" : "Mark Completed"}
+              Mark Completed
             </button>
             <button onClick={() => handleDelete(todo.id)}>Delete Todo</button>
             <span>{todo.title}</span>

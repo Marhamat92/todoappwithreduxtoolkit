@@ -24,8 +24,6 @@ function App() {
     dispatch(toggleCompleted(id));
   };
 
-  console.log(todos);
-
   return (
     <div>
       <input type='text' value={title} onChange={handleTitleChange} />
